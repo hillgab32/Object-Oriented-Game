@@ -4,5 +4,24 @@ class Wheel {
   PVector position;
   PVector velocity;
   PVector acceleration;
-  float gravity = 0.45;
+  float gravity = 0.5;
+  boolean isJumping;
+  
+  Wheel() {
+    grey = color(163);
+    lightGrey = color(210);
+    position = new PVector(height/4, height/2);
+    velocity = new PVector(0, -13);
+    acceleration = new PVector(0, gravity);
+    isJumping = false;
+  }
+  
+  void drawTheWheel() {
+    ellipseMode(CENTER);
+    stroke(0);
+    fill(grey);
+    ellipse(position.x, position.y, 50, 50);
+    fill(lightGrey);
+    ellipse(position.x, position.y, 20, 20);
+  }
 }
