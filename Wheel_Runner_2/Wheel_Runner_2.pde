@@ -1,3 +1,4 @@
+int score;
 boolean gameOver = false;
 
 void setup() {
@@ -11,4 +12,14 @@ void draw() {
   fill(63, 155, 11);
   stroke(0);
   rect(-10, 625, 800, 625);
+  
+}
+
+void keyPressed() {
+}
+
+void mousePressed() {
+  if(gameOver == true) {
+    gameOver = !gameOver;
+  }
 }
