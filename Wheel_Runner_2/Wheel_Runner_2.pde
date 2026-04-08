@@ -1,4 +1,5 @@
 int score;
+boolean isJumping = false;
 boolean gameOver = false;
 
 void setup() {
