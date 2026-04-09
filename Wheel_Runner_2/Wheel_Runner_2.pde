@@ -9,7 +9,7 @@ void setup() {
   size(800, 800);
   wheel = new Wheel(150, 600, 25);
   hazard = new Hazard(850, random(100, 600), 30, 30);
-  coin = new Coin();
+  coin = new Coin(850, random(100, 600), 15);
 }
 
 void draw() {
@@ -23,6 +23,7 @@ void draw() {
   hazard.checkCollision(wheel);
   hazard.drawHazard();
   hazard.moveHazard();
+  coin.checkCollision(wheel);
   coin.moveCoin();
   coin.drawCoin();
 }

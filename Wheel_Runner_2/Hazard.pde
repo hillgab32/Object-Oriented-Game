@@ -12,7 +12,7 @@ class Hazard {
     red = color(255, 0, 0);
     position = new PVector(_x, _y);
     velocity = new PVector(2, 0);
-    acceleration = new PVector(0.01, 0);
+    acceleration = new PVector(0.1, 0);
     // hit detection code from https://www.jeffreythompson.org/collision-detection/
     w = _w;
     h = _h;
