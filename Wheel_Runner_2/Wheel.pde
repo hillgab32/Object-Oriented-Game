@@ -10,7 +10,7 @@ class Wheel {
   Wheel() {
     grey = color(163);
     lightGrey = color(210);
-    position = new PVector(height/4, height/2);
+    position = new PVector(150, 600);
     velocity = new PVector(0, -13);
     acceleration = new PVector(0, gravity);
     isJumping = false;
@@ -27,7 +27,7 @@ class Wheel {
       velocity.add(acceleration);
       position.add(velocity);
     }
-    if(position.y > height/2) {
+    if(position.y > 600) {
       
     }
   }
