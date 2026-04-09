@@ -8,7 +8,7 @@ class Wheel {
   boolean isJumping;
   
   Wheel() {
-    grey = color(163);
+    grey = color(50);
     lightGrey = color(210);
     position = new PVector(150, 600);
     velocity = new PVector(0, -13);
