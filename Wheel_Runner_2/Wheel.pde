@@ -22,7 +22,7 @@ class Wheel {
     isJumping = false;
     radius = _r;
   }
-
+// hit detection code from https://www.jeffreythompson.org/collision-detection/
   void checkCollision(Hazard hazard) {
     hit = circleRect(hazard.position.x, hazard.position.y, hazard.w, hazard.h, position.x, position.y, radius);
   }

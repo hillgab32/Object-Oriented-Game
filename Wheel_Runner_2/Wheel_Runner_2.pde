@@ -18,14 +18,15 @@ void setup() {
 
 void draw() {
   background(135, 206, 235);
+  for(int i = 0; i < hills.length; i++){
+      hills[i].drawHill();
+      hills[i].moveHill();
+    }
   rectMode(CORNER);
   fill(63, 155, 11);
   stroke(0);
   rect(-10, 625, 825, 625);
   if (gameOver == false) {
-    for(int i = 0; i < hills.length; i++){
-      hills[i].drawHill();
-    }
     wheel.checkCollision(hazard);
     wheel.drawTheWheel();
     hazard.checkCollision(wheel);

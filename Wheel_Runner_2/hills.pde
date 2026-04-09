@@ -1,5 +1,5 @@
 class Hills {
-  color green = color(115, 186, 215);
+  color green = color(63, 155, 11);
   PVector position;
   PVector velocity;
   float hillHeight;
