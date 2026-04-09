@@ -12,5 +12,10 @@ class Hazard {
   }
   
   void drawHazard() {
+    rectMode(CENTER);
+    stroke(0);
+    fill(red);
+    rotate(45);
+    rect(position.x, position.y, 30, 30);
   }
 }
