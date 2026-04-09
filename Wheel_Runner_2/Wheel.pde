@@ -1,6 +1,6 @@
 class Wheel {
   // hit detection code from https://www.jeffreythompson.org/collision-detection/
-  float radius;
+  float radius; // declare variables for the Wheel class
 
   color grey;
   color lightGrey;
@@ -10,10 +10,10 @@ class Wheel {
   PVector acceleration;
   float gravity = 0.5;
   boolean isJumping;
-  boolean hit = false;
+  boolean hit = false; 
 
   // hit detection code from https://www.jeffreythompson.org/collision-detection/
-  Wheel(float _x, float _y, float _r) {
+  Wheel(float _x, float _y, float _r) { // assigns variables and writes the constructor
     grey = color(50);
     lightGrey = color(210);
     position = new PVector(_x, _y);
@@ -23,11 +23,11 @@ class Wheel {
     radius = _r;
   }
 // hit detection code from https://www.jeffreythompson.org/collision-detection/
-  void checkCollision(Hazard hazard) {
+  void checkCollision(Hazard hazard) { // activates when the wheel and hazard collide
     hit = circleRect(hazard.position.x, hazard.position.y, hazard.w, hazard.h, position.x, position.y, radius);
   }
 
-  void drawTheWheel() {
+  void drawTheWheel() { // draws a dark grey wheel with a light grey rim, resets position when hit by hazard.
     ellipseMode(CENTER);
     stroke(0);
     fill(grey);
@@ -39,7 +39,7 @@ class Wheel {
     fill(lightGrey);
     ellipse(position.x, position.y, radius-5, radius-5);
     if (isJumping == true) {
-      velocity.add(acceleration);
+      velocity.add(acceleration); // determines how the wheel jump is affected by gravity
       position.add(velocity);
     }
     if (position.y > 600) {
@@ -48,7 +48,7 @@ class Wheel {
     }
   }
 
-  void wheelJump() {
+  void wheelJump() { // causes the wheel to jump when the space key is pressed
     if (key == ' ') {
       isJumping = true;
       velocity = new PVector(0, -13);
@@ -57,7 +57,7 @@ class Wheel {
 }
 
 // hit detection code from https://www.jeffreythompson.org/collision-detection/
-boolean circleRect(float rx, float ry, float rw, float rh, float cx, float cy, float radius) {
+boolean circleRect(float rx, float ry, float rw, float rh, float cx, float cy, float radius) { // determines hit detection
 
   // temporary variables to set edges for testing
   float testX = cx;

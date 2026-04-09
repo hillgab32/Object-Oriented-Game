@@ -1,14 +1,13 @@
 class Hazard {
-  color red;
-  // hit detection code from https://www.jeffreythompson.org/collision-detection/
+  color red; // declare variables for the Hazard class
   float w, h;
   PVector position;
   PVector velocity;
   PVector acceleration;
   // hit detection code from https://www.jeffreythompson.org/collision-detection/
   boolean hit = false;
-
-  Hazard(float _x, float _y, float _w, float _h) {
+// hit detection code from https://www.jeffreythompson.org/collision-detection/
+  Hazard(float _x, float _y, float _w, float _h) { // assign variables and write constructor
     red = color(255, 0, 0);
     position = new PVector(_x, _y);
     velocity = new PVector(4, 0);
@@ -19,11 +18,11 @@ class Hazard {
   }
 
   // hit detection code from https://www.jeffreythompson.org/collision-detection/
-  void checkCollision(Wheel wheel) {
+  void checkCollision(Wheel wheel) { // activates when the wheel and hazard collide
     hit = rectCircle(wheel.position.x, wheel.position.y, wheel.radius, position.x, position.y, w, h);
   }
 
-  void drawHazard() {
+  void drawHazard() { // draws the hazard as a red square, resetting its position and velocity when hit to avoid overlapping with the wheel when trying to play again
     rectMode(CENTER);
     stroke(0);
     fill(red);
@@ -35,7 +34,7 @@ class Hazard {
     rect(position.x, position.y, w, h);
   }
 
-  boolean death() {
+  boolean death() { // returns a true signal when the wheel hits the hazard, ending the game
     if (hit) {
       return true;
     } else {
@@ -43,7 +42,7 @@ class Hazard {
     }
   }
 
-  void moveHazard() {
+  void moveHazard() { // The hazard moves from left to right and gradually increases in speed.
     position.sub(velocity);
     if (position.x <= -100) {
       position.x = 850;
@@ -53,7 +52,7 @@ class Hazard {
   }
 }
 // hit detection code from https://www.jeffreythompson.org/collision-detection/
-boolean rectCircle(float cx, float cy, float radius, float rx, float ry, float rw, float rh) {
+boolean rectCircle(float cx, float cy, float radius, float rx, float ry, float rw, float rh) { // determines hit detection
 
   // temporary variables to set edges for testing
   float testX = cx;
