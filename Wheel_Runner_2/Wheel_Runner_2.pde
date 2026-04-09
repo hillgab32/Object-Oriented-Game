@@ -1,6 +1,5 @@
 Wheel wheel;
 Hazard hazard;
-//Coin[] coins;
 Coin coin;
 
 int score;
@@ -19,7 +18,9 @@ void draw() {
   fill(63, 155, 11);
   stroke(0);
   rect(-10, 625, 825, 625);
+  wheel.checkCollision(hazard);
   wheel.drawTheWheel();
+  hazard.checkCollision(wheel);
   hazard.drawHazard();
   hazard.moveHazard();
   coin.moveCoin();

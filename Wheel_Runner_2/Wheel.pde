@@ -10,6 +10,7 @@ class Wheel {
   PVector acceleration;
   float gravity = 0.5;
   boolean isJumping;
+  boolean hit = false;
   
   // hit detection code from https://www.jeffreythompson.org/collision-detection/
   Wheel(float _x, float _y, float _r) {
@@ -22,10 +23,19 @@ class Wheel {
     radius = _r;
   }
   
+  void checkCollision(Hazard hazard) {
+    hit = circleRect(hazard.position.x, hazard.position.y, hazard.w, hazard.h, position.x, position.y, radius);
+  }
+  
   void drawTheWheel() {
     ellipseMode(CENTER);
     stroke(0);
-    fill(grey);
+    if(hit) {
+      fill(255, 0, 0);
+    }
+    else {
+      fill(grey);
+    }
     // hit detection code from https://www.jeffreythompson.org/collision-detection/
     ellipse(position.x, position.y, radius*2, radius*2);
     fill(lightGrey);
@@ -46,4 +56,29 @@ class Wheel {
       velocity = new PVector(0, -13);
     }
   }
+}
+
+// hit detection code from https://www.jeffreythompson.org/collision-detection/
+boolean circleRect(float rx, float ry, float rw, float rh, float cx, float cy, float radius) {
+
+  // temporary variables to set edges for testing
+  float testX = cx;
+  float testY = cy;
+
+  // which edge is closest?
+  if (cx < rx)         testX = rx;      // compare left edge
+  else if (cx > rx+rw) testX = rx+rw;   // right edge
+  if (cy < ry)         testY = ry;      // top edge
+  else if (cy > ry+rh) testY = ry+rh;   // bottom edge
+
+  // get distance from closest edges
+  float distX = cx-testX;
+  float distY = cy-testY;
+  float distance = sqrt( (distX*distX) + (distY*distY) );
+
+  // if the distance is less than the radius, collision!
+  if (distance <= radius) {
+    return true;
+  }
+  return false;
 }
