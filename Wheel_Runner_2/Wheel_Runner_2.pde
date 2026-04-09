@@ -18,6 +18,7 @@ void draw() {
 }
 
 void keyPressed() {
+  wheel.wheelJump();
 }
 
 void mousePressed() {

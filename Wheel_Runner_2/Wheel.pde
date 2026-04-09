@@ -28,11 +28,15 @@ class Wheel {
       position.add(velocity);
     }
     if(position.y > 600) {
-      
+      isJumping =false;
+      position.y = 600;
     }
   }
   
-  void bounceTheWheel() {
-    
+  void wheelJump() {
+    if (key == ' ') {
+      isJumping = true;
+      velocity = new PVector(0, -13);
+    }
   }
 }
