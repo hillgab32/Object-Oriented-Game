@@ -1,6 +1,7 @@
 Wheel wheel;
 Hazard hazard;
 Coin coin;
+Hills[] hills;
 
 int score = 0;
 boolean gameOver = true;
@@ -10,6 +11,7 @@ void setup() {
   wheel = new Wheel(150, 600, 25);
   hazard = new Hazard(850, random(100, 600), 50, 50);
   coin = new Coin(850, random(100, 600), 15);
+  hills = new Hills[3];
 }
 
 void draw() {
