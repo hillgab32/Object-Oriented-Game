@@ -1,21 +1,30 @@
 class Hazard {
   color red;
-  PVector position;
+  PVector position = new PVector(850, random(100, 600));
   PVector velocity;
   PVector acceleration;
   
   Hazard() {
     red = color(255, 0, 0);
-    position = new PVector(810, random(100, 600));
     velocity = new PVector(2, 0);
-    acceleration = new PVector(0.1, 0);
+    acceleration = new PVector(0.5, 0);
   }
   
   void drawHazard() {
     rectMode(CENTER);
     stroke(0);
     fill(red);
-    rotate(45);
     rect(position.x, position.y, 30, 30);
+    
   }
-}
+  
+  void moveHazard() {
+    position.sub(velocity);
+    if(position.x <= -100) {
+      position.x = 850;
+      position.y = random(100, 600);
+      acceleration.x += 0.01;
+      velocity.add(acceleration);
+    }
+  }
+}   

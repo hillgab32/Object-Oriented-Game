@@ -1,4 +1,5 @@
 Wheel wheel;
+Hazard hazard;
 
 int score;
 boolean gameOver = false;
@@ -6,6 +7,7 @@ boolean gameOver = false;
 void setup() {
   size(800, 800);
   wheel = new Wheel();
+  hazard = new Hazard();
 }
 
 void draw() {
@@ -13,8 +15,10 @@ void draw() {
   rectMode(CORNER);
   fill(63, 155, 11);
   stroke(0);
-  rect(-10, 625, 800, 625);
+  rect(-10, 625, 825, 625);
   wheel.drawTheWheel();
+  hazard.drawHazard();
+  hazard.moveHazard();
 }
 
 void keyPressed() {
