@@ -1,9 +1,11 @@
+Wheel wheel;
+
 int score;
 boolean gameOver = false;
 
 void setup() {
   size(800, 800);
-  
+  wheel = new Wheel();
 }
 
 void draw() {
@@ -12,7 +14,7 @@ void draw() {
   fill(63, 155, 11);
   stroke(0);
   rect(-10, 625, 800, 625);
-  
+  wheel.drawTheWheel();
 }
 
 void keyPressed() {

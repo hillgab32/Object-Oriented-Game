@@ -23,5 +23,16 @@ class Wheel {
     ellipse(position.x, position.y, 50, 50);
     fill(lightGrey);
     ellipse(position.x, position.y, 20, 20);
+    if(isJumping == true) {
+      velocity.add(acceleration);
+      position.add(velocity);
+    }
+    if(position.y > height/2) {
+      
+    }
+  }
+  
+  void bounceTheWheel() {
+    
   }
 }
