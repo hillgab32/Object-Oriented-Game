@@ -7,7 +7,7 @@ class Hazard {
   Hazard() {
     red = color(255, 0, 0);
     velocity = new PVector(2, 0);
-    acceleration = new PVector(0.5, 0);
+    acceleration = new PVector(0.01, 0);
   }
   
   void drawHazard() {
@@ -23,7 +23,6 @@ class Hazard {
     if(position.x <= -100) {
       position.x = 850;
       position.y = random(100, 600);
-      acceleration.x += 0.01;
       velocity.add(acceleration);
     }
   }

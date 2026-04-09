@@ -1,5 +1,7 @@
 Wheel wheel;
 Hazard hazard;
+//Coin[] coins;
+Coin coin;
 
 int score;
 boolean gameOver = false;
@@ -8,6 +10,7 @@ void setup() {
   size(800, 800);
   wheel = new Wheel();
   hazard = new Hazard();
+  coin = new Coin();
 }
 
 void draw() {
@@ -19,6 +22,8 @@ void draw() {
   wheel.drawTheWheel();
   hazard.drawHazard();
   hazard.moveHazard();
+  coin.moveCoin();
+  coin.drawCoin();
 }
 
 void keyPressed() {
