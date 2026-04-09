@@ -2,8 +2,8 @@ Wheel wheel;
 Hazard hazard;
 Coin coin;
 
-int score;
-boolean gameOver = false;
+int score = 0;
+boolean gameOver = true;
 
 void setup() {
   size(800, 800);
@@ -18,14 +18,35 @@ void draw() {
   fill(63, 155, 11);
   stroke(0);
   rect(-10, 625, 825, 625);
-  wheel.checkCollision(hazard);
-  wheel.drawTheWheel();
-  hazard.checkCollision(wheel);
-  hazard.drawHazard();
-  hazard.moveHazard();
-  coin.checkCollision(wheel);
-  coin.moveCoin();
-  coin.drawCoin();
+  if (gameOver == false) {
+    wheel.checkCollision(hazard);
+    wheel.drawTheWheel();
+    hazard.checkCollision(wheel);
+    hazard.drawHazard();
+    hazard.moveHazard();
+    coin.checkCollision(wheel);
+    coin.moveCoin();
+    coin.drawCoin();
+    if (coin.scoreCoin() == true) {
+      score++;
+    }
+  }
+  if (score == 10) {
+    gameOver = true;
+    textSize(75);
+    fill(0);
+    text("You Win!", 400, 400);
+    textSize(20);
+    text("Click to play again!", 400, 600);
+  }
+  if (hazard.death() == true) {
+    gameOver = true;
+    textSize(75);
+    fill(0);
+    text("GAME OVER", 400, 400);
+    textSize(20);
+    text("Click to try again!", 400, 600);
+  }
 }
 
 void keyPressed() {
@@ -33,7 +54,8 @@ void keyPressed() {
 }
 
 void mousePressed() {
-  if(gameOver == true) {
+  if (gameOver == true) {
     gameOver = !gameOver;
+    score = 0;
   }
 }

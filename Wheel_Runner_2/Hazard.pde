@@ -17,7 +17,7 @@ class Hazard {
     w = _w;
     h = _h;
   }
-  
+
   // hit detection code from https://www.jeffreythompson.org/collision-detection/
   void checkCollision(Wheel wheel) {
     hit = rectCircle(wheel.position.x, wheel.position.y, wheel.radius, position.x, position.y, w, h);
@@ -33,6 +33,15 @@ class Hazard {
       fill(red);
     }
     rect(position.x, position.y, w, h);
+  }
+  
+  boolean death() {
+    if(hit) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
 
   void moveHazard() {
