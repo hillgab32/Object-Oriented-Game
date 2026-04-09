@@ -30,10 +30,9 @@ class Wheel {
   void drawTheWheel() {
     ellipseMode(CENTER);
     stroke(0);
+    fill(grey);
     if (hit) {
-      fill(255, 0, 0);
-    } else {
-      fill(grey);
+      position.y = 600;
     }
     // hit detection code from https://www.jeffreythompson.org/collision-detection/
     ellipse(position.x, position.y, radius*2, radius*2);

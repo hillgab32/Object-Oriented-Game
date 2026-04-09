@@ -11,7 +11,7 @@ class Hazard {
   Hazard(float _x, float _y, float _w, float _h) {
     red = color(255, 0, 0);
     position = new PVector(_x, _y);
-    velocity = new PVector(2, 0);
+    velocity = new PVector(4, 0);
     acceleration = new PVector(0.1, 0);
     // hit detection code from https://www.jeffreythompson.org/collision-detection/
     w = _w;
@@ -26,20 +26,19 @@ class Hazard {
   void drawHazard() {
     rectMode(CENTER);
     stroke(0);
+    fill(red);
     // hit detection code from https://www.jeffreythompson.org/collision-detection/
     if (hit) {
-      fill(255);
-    } else {
-      fill(red);
+      position.x = 850;
+      velocity.x = 4;
     }
     rect(position.x, position.y, w, h);
   }
-  
+
   boolean death() {
-    if(hit) {
+    if (hit) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }

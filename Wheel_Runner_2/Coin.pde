@@ -7,7 +7,7 @@ class Coin {
   int score = 0;
 
   Coin(float _x, float _y, float _r) {
-    velocity = new PVector(2, 0);
+    velocity = new PVector(4, 0);
     position  = new PVector(_x, _y);
     radius = _r;
   }
@@ -23,12 +23,11 @@ class Coin {
     fill(yellow);
     ellipse(position.x, position.y, radius*2, radius*2);
   }
-  
+
   boolean scoreCoin() {
-    if(hit) {
+    if (hit) {
       return true;
-    }
-    else {
+    } else {
       return false;
     }
   }
