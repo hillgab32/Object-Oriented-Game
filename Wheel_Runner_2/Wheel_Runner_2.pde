@@ -8,8 +8,8 @@ boolean gameOver = false;
 
 void setup() {
   size(800, 800);
-  wheel = new Wheel();
-  hazard = new Hazard();
+  wheel = new Wheel(150, 600, 25);
+  hazard = new Hazard(850, random(100, 600), 30, 30);
   coin = new Coin();
 }
 
